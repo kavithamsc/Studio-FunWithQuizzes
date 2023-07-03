@@ -1,26 +1,26 @@
 package org.launchcode.funandquizzes;
 
-public abstract class Question {
-    private int pointValue;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
-    private String text;
+abstract class Question {
+    private String prompt;
+    String answer;
 
-
-    public Question(int pointValue, String text) {
-        this.pointValue = pointValue;
-        this.text = text;
-    }
-    public void displayQuestion(){
-        System.out.println(text);
-    }
-
-    public int getPointValue() {
-        return pointValue;
+    public Question(String prompt, String answer) {
+        this.prompt = prompt;
+        this.answer = answer;
     }
 
-    public void setPointValue(int pointValue) {
-        this.pointValue = pointValue;
+    public abstract boolean isAnswerCorrect(String userAnswer);
+
+    public void displayPrompt() {
+        System.out.println(prompt);
     }
+
+
     public abstract void displayAnswers();
+
     public abstract int getAnswers();
 }
